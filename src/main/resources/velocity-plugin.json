@@ -1,0 +1,12 @@
+{
+    "id": "proxy-core",
+    "name": "ProxyCore",
+    "version": "1.0.0",
+    "description": "Core Plugin for Velocity",
+    "url": "https://github.com/MatthewCash/proxy-core",
+    "authors": [
+        "Matthew_Cash"
+    ],
+    "dependencies": [],
+    "main": "com.matthewcash.network.ProxyCore"
+}

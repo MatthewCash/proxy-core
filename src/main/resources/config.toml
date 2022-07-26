@@ -1,0 +1,7 @@
+[serverlist]
+version = "Minecraft 1.19"
+description = "A Minecraft Server"
+sample_players = [ ]
+
+[serveraliases]
+hub = "Hub"
