@@ -1,9 +1,8 @@
-# ping-handler
-
-> This is a simple plugin to intercept and log certain ping to the BungeeCord server
+# proxy-core
+ 
+> This is the core plugin for my Velocity server serving various functions
 
 ## Build Instructions
-
 ```bash
 # build jar with maven
 $ mvn package
