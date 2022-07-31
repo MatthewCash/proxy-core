@@ -2,15 +2,14 @@ package com.matthewcash.network;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
+
+import org.slf4j.Logger;
 
 public class ProxyCore {
     public static ProxyServer proxy;
@@ -38,16 +37,10 @@ public class ProxyCore {
         proxy.getEventManager().register(this, new ServerListEvent());
         proxy.getEventManager().register(this, new KickToHub());
         proxy.getEventManager().register(this, new MessageFormat());
-        proxy.getEventManager().register(this, new TabListManager());
         proxy.getEventManager().register(this, new SwitchMessages());
 
         proxy.getCommandManager().register(HubCommand.createCommandMeta(),
             HubCommand.createBrigadierCommand());
-
-        proxy.getScheduler()
-            .buildTask(this, () -> TabListManager.updatePing())
-            .repeat(5L, TimeUnit.SECONDS)
-            .schedule();
 
         logger.info("Enabled ProxyCore!");
     }
