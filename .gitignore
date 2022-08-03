@@ -1,3 +1,7 @@
-.settings
-.vscode
-target/*
+# Data directories
+.gradle/
+.jdtls_data/
+
+# Build Outputs
+build/
+bin/
