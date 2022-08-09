@@ -23,7 +23,7 @@ public class ServerListEvent {
     public static void loadFavicon() throws IOException {
         Path faviconPath = ProxyCore.dataDirectory.resolve("favicon.png");
 
-        favicon = new Favicon(
+        favicon = new Favicon("data:image/png;base64," +
             Base64.getEncoder().encodeToString(Files.readAllBytes(faviconPath)));
     }
 
