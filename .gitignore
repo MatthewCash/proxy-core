@@ -1,6 +1,7 @@
 # Data directories
 .gradle/
 .jdtls_data/
+.direnv
 
 # Build Outputs
 build/
