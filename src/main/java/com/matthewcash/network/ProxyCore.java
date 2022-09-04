@@ -39,6 +39,7 @@ public class ProxyCore {
         proxy.getEventManager().register(this, new MessageFormat());
         proxy.getEventManager().register(this, new SwitchMessages());
         proxy.getEventManager().register(this, new JoinLeaveMessages());
+        proxy.getEventManager().register(this, new TablistManager());
 
         proxy.getCommandManager().register(HubCommand.createCommandMeta(),
             HubCommand.createBrigadierCommand());
