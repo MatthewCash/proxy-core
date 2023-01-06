@@ -37,11 +37,5 @@ public class MessageFormat {
                 Placeholder.unparsed("username", player.getUsername()), content);
 
         ProxyCore.proxy.sendMessage(message);
-
-        if (player.getProtocolVersion().compareTo(ProtocolVersion.MINECRAFT_1_19_1) >= 0) {
-            player.disconnect(Component.text("1.19.1+ players cannot send chat messages at this time!"));
-        }
-
-        event.setResult(PlayerChatEvent.ChatResult.denied());
     }
 }
