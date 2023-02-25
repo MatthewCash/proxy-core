@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
-    annotationProcessor("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
+    implementation("com.velocitypowered:velocity-api:3.2.0-SNAPSHOT")
+    annotationProcessor("com.velocitypowered:velocity-api:3.2.0-SNAPSHOT")
     implementation("net.kyori:adventure-text-minimessage:4.11.0")
     implementation("com.electronwill.night-config:toml:3.6.0")
     implementation("net.luckperms:api:5.4")
