@@ -44,6 +44,9 @@ public class ProxyCore {
         proxy.getCommandManager().register(HubCommand.createCommandMeta(),
             HubCommand.createBrigadierCommand());
 
+        proxy.getCommandManager().register(SendCommand.createCommandMeta(),
+            SendCommand.createBrigadierCommand());
+
         logger.info("Enabled ProxyCore!");
     }
 }
