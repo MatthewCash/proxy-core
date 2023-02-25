@@ -23,8 +23,11 @@ public class ServerListEvent {
     public static void loadFavicon() throws IOException {
         Path faviconPath = ProxyCore.dataDirectory.resolve("favicon.png");
 
-        favicon = new Favicon("data:image/png;base64," +
-            Base64.getEncoder().encodeToString(Files.readAllBytes(faviconPath)));
+        favicon = new Favicon(
+            "data:image/png;base64," +
+                Base64.getEncoder()
+                    .encodeToString(Files.readAllBytes(faviconPath))
+        );
     }
 
     @Subscribe(order = PostOrder.LAST)
@@ -32,11 +35,17 @@ public class ServerListEvent {
         final ServerPing ping = event.getPing();
 
         ServerPing.Builder builder = ping.asBuilder();
-        builder.version(new ServerPing.Version(ping.getVersion().getProtocol(),
-            ConfigManager.config.get("serverlist.version")));
+        builder.version(
+            new ServerPing.Version(
+                ping.getVersion().getProtocol(),
+                ConfigManager.config.get("serverlist.version")
+            )
+        );
 
-        builder.description(MiniMessage.miniMessage()
-            .deserialize(ConfigManager.config.get("serverlist.description")));
+        builder.description(
+            MiniMessage.miniMessage()
+                .deserialize(ConfigManager.config.get("serverlist.description"))
+        );
 
         builder.onlinePlayers(ping.getPlayers().get().getOnline());
         builder.maximumPlayers(20000);
@@ -48,11 +57,17 @@ public class ServerListEvent {
 
         builder.samplePlayers(
             samplePlayerLines.stream()
-                .map(line -> new ServerPing.SamplePlayer(
-                    LegacyComponentSerializer.legacySection()
-                        .serialize(MiniMessage.miniMessage().deserialize(line)),
-                    UUID.randomUUID()))
-                .toArray(SamplePlayer[]::new));
+                .map(
+                    line -> new ServerPing.SamplePlayer(
+                        LegacyComponentSerializer.legacySection()
+                            .serialize(
+                                MiniMessage.miniMessage().deserialize(line)
+                            ),
+                        UUID.randomUUID()
+                    )
+                )
+                .toArray(SamplePlayer[]::new)
+        );
 
         builder.favicon(favicon);
 

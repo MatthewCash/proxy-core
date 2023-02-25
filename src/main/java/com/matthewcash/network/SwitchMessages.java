@@ -21,7 +21,8 @@ public class SwitchMessages {
             .deserialize(
                 "<bold><yellow><username></yellow> <gray>has moved to</gray> <yellow><server></yellow></bold>",
                 Placeholder.unparsed("username", username),
-                Placeholder.unparsed("server", serverName));
+                Placeholder.unparsed("server", serverName)
+            );
 
         ProxyCore.proxy.sendMessage(message);
     }

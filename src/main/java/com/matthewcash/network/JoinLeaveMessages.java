@@ -17,7 +17,8 @@ public class JoinLeaveMessages {
         final Component message = MiniMessage.miniMessage()
             .deserialize(
                 "<gray>Join ></gray> <yellow><bold><username></bold></yellow>",
-                Placeholder.unparsed("username", username));
+                Placeholder.unparsed("username", username)
+            );
 
         ProxyCore.proxy.sendMessage(message);
     }
@@ -29,7 +30,8 @@ public class JoinLeaveMessages {
         final Component message = MiniMessage.miniMessage()
             .deserialize(
                 "<gray>Quit ></gray> <yellow><bold><username></bold></yellow>",
-                Placeholder.unparsed("username", username));
+                Placeholder.unparsed("username", username)
+            );
 
         ProxyCore.proxy.sendMessage(message);
     }

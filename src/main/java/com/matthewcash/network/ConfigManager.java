@@ -7,7 +7,9 @@ public class ConfigManager {
         .builder(ProxyCore.dataDirectory.resolve("config.toml").toFile())
         .defaultData(
             ProxyCore.class.getResource(
-                "/config.toml"))
+                "/config.toml"
+            )
+        )
         .autosave()
         .preserveInsertionOrder()
         .sync()

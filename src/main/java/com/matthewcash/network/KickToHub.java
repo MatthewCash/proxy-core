@@ -15,16 +15,22 @@ public class KickToHub {
             .orElse(Component.text("No Reason Supplied"));
 
         final Component message = MiniMessage.miniMessage()
-            .deserialize("<aqua><bold>Kicked</bold></aqua> > <gray><reason></gray>",
-                Placeholder.component("reason", reason));
+            .deserialize(
+                "<aqua><bold>Kicked</bold></aqua> > <gray><reason></gray>",
+                Placeholder.component("reason", reason)
+            );
 
         if (event.kickedDuringServerConnect()
             || event.getServer().getServerInfo().getName().equals("hub")) {
-            event.setResult(KickedFromServerEvent.Notify
-                .create(message));
+            event.setResult(
+                KickedFromServerEvent.Notify
+                    .create(message)
+            );
         } else {
-            event.setResult(KickedFromServerEvent.RedirectPlayer
-                .create(ProxyCore.proxy.getServer("hub").get(), message));
+            event.setResult(
+                KickedFromServerEvent.RedirectPlayer
+                    .create(ProxyCore.proxy.getServer("hub").get(), message)
+            );
         }
     }
 }

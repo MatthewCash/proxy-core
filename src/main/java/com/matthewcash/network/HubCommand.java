@@ -20,7 +20,8 @@ public class HubCommand {
     public static BrigadierCommand createBrigadierCommand() {
         LiteralCommandNode<CommandSource> commandNode = LiteralArgumentBuilder
             .<CommandSource>literal(
-                aliases[0])
+                aliases[0]
+            )
             .requires(source -> {
                 if (source instanceof Player == false)
                     return false;
@@ -30,7 +31,8 @@ public class HubCommand {
                 if (!player.getCurrentServer().isPresent())
                     return false;
 
-                if (player.getCurrentServer().get().getServerInfo().getName().equals("hub"))
+                if (player.getCurrentServer().get().getServerInfo().getName()
+                    .equals("hub"))
                     return false;
 
                 return true;
@@ -38,7 +40,10 @@ public class HubCommand {
             .executes(context -> {
                 final Player player = (Player) context.getSource();
 
-                player.createConnectionRequest(ProxyCore.proxy.getServer("hub").get())
+                player
+                    .createConnectionRequest(
+                        ProxyCore.proxy.getServer("hub").get()
+                    )
                     .fireAndForget();
 
                 return Command.SINGLE_SUCCESS;
