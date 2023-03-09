@@ -17,7 +17,9 @@ public class ProxyCore {
     public static Path dataDirectory;
 
     @Inject
-    public ProxyCore(ProxyServer proxy, Logger logger, @DataDirectory Path dataDirectory) {
+    public ProxyCore(
+        ProxyServer proxy, Logger logger, @DataDirectory Path dataDirectory
+    ) {
         ProxyCore.proxy = proxy;
         ProxyCore.logger = logger;
         ProxyCore.dataDirectory = dataDirectory;
@@ -41,11 +43,15 @@ public class ProxyCore {
         proxy.getEventManager().register(this, new JoinLeaveMessages());
         proxy.getEventManager().register(this, new TablistManager());
 
-        proxy.getCommandManager().register(HubCommand.createCommandMeta(),
-            HubCommand.createBrigadierCommand());
+        proxy.getCommandManager().register(
+            HubCommand.createCommandMeta(),
+            HubCommand.createBrigadierCommand()
+        );
 
-        proxy.getCommandManager().register(SendCommand.createCommandMeta(),
-            SendCommand.createBrigadierCommand());
+        proxy.getCommandManager().register(
+            SendCommand.createCommandMeta(),
+            SendCommand.createBrigadierCommand()
+        );
 
         logger.info("Enabled ProxyCore!");
     }
