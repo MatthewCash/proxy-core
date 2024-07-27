@@ -10,6 +10,7 @@ import java.util.UUID;
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyPingEvent;
+import com.velocitypowered.api.network.ProtocolVersion;
 import com.velocitypowered.api.proxy.server.ServerPing;
 import com.velocitypowered.api.proxy.server.ServerPing.SamplePlayer;
 import com.velocitypowered.api.util.Favicon;
@@ -21,7 +22,7 @@ public class ServerListEvent {
     private static Favicon favicon;
 
     public static void loadFavicon() throws IOException {
-        Path faviconPath = ProxyCore.dataDirectory.resolve("favicon.png");
+        final Path faviconPath = ProxyCore.dataDirectory.resolve("favicon.png");
 
         favicon = new Favicon(
             "data:image/png;base64," +
@@ -34,11 +35,17 @@ public class ServerListEvent {
     public void onPing(ProxyPingEvent event) {
         final ServerPing ping = event.getPing();
 
-        ServerPing.Builder builder = ping.asBuilder();
+        final ServerPing.Builder builder = ping.asBuilder();
         builder.version(
             new ServerPing.Version(
                 ping.getVersion().getProtocol(),
                 ConfigManager.config.get("serverlist.version")
+                    .toString()
+                    .replaceAll(
+                        "\\$VERSION",
+                        ProtocolVersion.MAXIMUM_VERSION
+                            .getMostRecentSupportedVersion()
+                    )
             )
         );
 
