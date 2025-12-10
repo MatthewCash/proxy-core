@@ -19,7 +19,7 @@ public class SwitchMessages {
 
         final Component message = MiniMessage.miniMessage()
             .deserialize(
-                "<bold><yellow><username></yellow> <gray>has moved to</gray> <yellow><server></yellow></bold>",
+                ConfigManager.config.get("messages.switch"),
                 Placeholder.unparsed("username", username),
                 Placeholder.unparsed("server", serverName)
             );

@@ -191,7 +191,7 @@ public class SendCommand {
             .sendMessage(
                 MiniMessage.miniMessage()
                     .deserialize(
-                        "<bold><aqua>Sent</aqua> <white><player></white> <aqua>to</aqua> <white><server></white><aqua>!</aqua></bold>",
+                        ConfigManager.config.get("messages.sent_player"),
                         Placeholder
                             .unparsed(
                                 "player",

@@ -16,7 +16,7 @@ public class JoinLeaveMessages {
 
         final Component message = MiniMessage.miniMessage()
             .deserialize(
-                "<gray>Join ></gray> <yellow><bold><username></bold></yellow>",
+                ConfigManager.config.get("messages.join"),
                 Placeholder.unparsed("username", username)
             );
 
@@ -29,7 +29,7 @@ public class JoinLeaveMessages {
 
         final Component message = MiniMessage.miniMessage()
             .deserialize(
-                "<gray>Quit ></gray> <yellow><bold><username></bold></yellow>",
+                ConfigManager.config.get("messages.leave"),
                 Placeholder.unparsed("username", username)
             );
 

@@ -16,17 +16,14 @@ public class KickToHub {
 
         final Component message = MiniMessage.miniMessage()
             .deserialize(
-                "<aqua><bold>Kicked</bold></aqua> > <gray><reason></gray>",
+                ConfigManager.config.get("messages.kicked"),
                 Placeholder.component("reason", reason)
             );
 
-        if (event.kickedDuringServerConnect()
-            || event.getServer().getServerInfo().getName().equals("hub")) {
-            event.setResult(
-                KickedFromServerEvent.Notify
-                    .create(message)
-            );
-        } else {
+        if (
+            !event.kickedDuringServerConnect()
+                && !event.getServer().getServerInfo().getName().equals("hub")
+        ) {
             event.setResult(
                 KickedFromServerEvent.RedirectPlayer
                     .create(ProxyCore.proxy.getServer("hub").get(), message)

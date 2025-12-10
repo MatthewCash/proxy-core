@@ -12,10 +12,10 @@ public class TablistManager {
     public void onServerConnected(ServerConnectedEvent event) {
         final Component tabHeader = MiniMessage.miniMessage()
             .deserialize(
-                "<bold> <yellow>Matthew_Cash</yellow> <gray>Network</gray></bold>"
+                ConfigManager.config.get("tablist.header")
             );
         final Component tabFooter = MiniMessage.miniMessage()
-            .deserialize("www.matthew-cash.com");
+            .deserialize(ConfigManager.config.get("tablist.footer"));
 
         event.getPlayer().sendPlayerListHeaderAndFooter(tabHeader, tabFooter);
     }

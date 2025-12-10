@@ -3,5 +3,18 @@ version = "Minecraft 1.19"
 description = "A Minecraft Server"
 sample_players = [ ]
 
+[tablist]
+header = "Server Name"
+footer = "www.example.com"
+
 [serveraliases]
 hub = "Hub"
+
+[messages]
+join = "<gray>Join ></gray> <dark_purple><bold><username></bold></dark_purple>"
+leave = "<gray>Quit ></gray> <dark_purple><bold><username></bold></dark_purple>"
+switch = "<bold><dark_purple><username></dark_purple> <gray>has moved to</gray> <dark_purple><server></dark_purple></bold>"
+kicked = "<aqua><bold>Kicked</bold></aqua> > <gray><reason></gray>"
+display_name = "<prefix><prefixspace><gray><username></gray>"
+chat = "<displayname> <content>"
+sent_player = "<bold><aqua>Sent</aqua> <white><player></white> <aqua>to</aqua> <white><server></white><aqua>!</aqua></bold>"

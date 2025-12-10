@@ -22,7 +22,7 @@ public class MessageFormat {
 
         return MiniMessage.miniMessage()
             .deserialize(
-                "<prefix><prefixspace><gray><username></gray>",
+                ConfigManager.config.get("messages.display_name"),
                 Placeholder.component(
                     "prefix", prefix
                 ),
@@ -61,7 +61,7 @@ public class MessageFormat {
 
         final Component message = MiniMessage.miniMessage()
             .deserialize(
-                "<displayname> <content>",
+                ConfigManager.config.get("messages.chat"),
                 Placeholder.component(
                     "displayname", displayName
                 ),
