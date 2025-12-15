@@ -12,6 +12,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import org.slf4j.Logger;
 
 public class ProxyCore {
+    public static ProxyCore plugin;
     public static ProxyServer proxy;
     public static Logger logger;
     public static Path dataDirectory;
@@ -20,6 +21,8 @@ public class ProxyCore {
     public ProxyCore(
         ProxyServer proxy, Logger logger, @DataDirectory Path dataDirectory
     ) {
+
+        ProxyCore.plugin = this;
         ProxyCore.proxy = proxy;
         ProxyCore.logger = logger;
         ProxyCore.dataDirectory = dataDirectory;
@@ -52,6 +55,8 @@ public class ProxyCore {
             SendCommand.createCommandMeta(),
             SendCommand.createBrigadierCommand()
         );
+
+        TablistManager.startTablistTask();
 
         logger.info("Enabled ProxyCore!");
     }
